@@ -17,6 +17,7 @@ package org.rstudio.studio.client.workbench.views.output.find;
 import com.google.gwt.dom.client.Document;
 import com.google.gwt.dom.client.TableCellElement;
 import com.google.gwt.dom.client.TableRowElement;
+import org.rstudio.core.client.ClassIds;
 import org.rstudio.core.client.CodeNavigationTarget;
 import org.rstudio.core.client.FilePosition;
 import org.rstudio.core.client.StringUtil;
@@ -55,6 +56,7 @@ public class FindOutputCodec
       TableCellElement td1 = Document.get().createTDElement();
       td1.setClassName(styles_.line());
       td1.setInnerText(entry.getLine() + ":\u00A0");
+      td1.setClassName(ClassIds.FAST_SELECT_ROW + "_" + td1.getInnerText());
       tr.appendChild(td1);
 
       TableCellElement td2 = Document.get().createTDElement();
@@ -63,6 +65,7 @@ public class FindOutputCodec
          td2.setInnerHTML(entry.getLineHTML().asString());
       else
          td2.setInnerHTML(entry.getLineReplaceHTML().asString());
+      td2.setClassName(ClassIds.FAST_SELECT_ROW + "_" + td2.getInnerText());
       tr.appendChild(td2);
 
       return tr;
